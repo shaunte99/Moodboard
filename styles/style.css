@@ -1,0 +1,159 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #F6F4F2;
+  color: #1C1C1C;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #C7A662; /* Elegant Gold */
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #7A7A7A; /* Charcoal Gray */
+}
+
+/* Form */
+form label {
+  display: block;
+  margin: 20px 0 8px;
+  font-weight: bold;
+  color: #1C1C1C; /* Rich Black */
+}
+
+form input[type="text"],
+form input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #DCD2CA; /* Light Taupe */
+  border-radius: 10px;
+  background-color: #F6F4F2;
+  font-size: 1rem;
+  color: #1C1C1C;
+}
+
+form input[type="file"] {
+  background-color: #fff;
+}
+
+/* Image Preview */
+#imagePreview {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+#imagePreview img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+button {
+  margin-top: 25px;
+  padding: 14px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 10px;
+}
+
+#generateBtn {
+  background-color: #C7A662; /* Elegant Gold */
+  color: #fff;
+}
+
+#generateBtn:hover {
+  background-color: #a78e52;
+}
+
+#sendBtn {
+  background-color: #1C1C1C; /* Rich Black */
+  color: #fff;
+}
+
+#sendBtn:hover {
+  background-color: #333;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #7A7A7A;
+}
+
+/* Responsive: Mobile Styles */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px 10px;
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  form input[type="text"],
+  form input[type="file"] {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #imagePreview {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}

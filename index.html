@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mood Board Generator - Event Inspirations</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="images/logo.jpg" alt="Event Inspirations Logo" class="logo" />
+      <h1>Event Inspirations</h1>
+      <p class="subtitle">Create Your Elegant Mood Board</p>
+    </header>
+
+    <form id="moodBoardForm">
+      <label for="nameInput">Your Name or Event Title</label>
+      <input
+        type="text"
+        id="nameInput"
+        name="clientName"
+        placeholder="e.g. Johnny & Melisa Wedding"
+        required
+      />
+
+      <label for="imageUpload">Upload Inspiration Photos (4–8 images)</label>
+      <input
+        type="file"
+        id="imageUpload"
+        name="images"
+        accept="image/*"
+        multiple
+        required
+      />
+
+      <div id="imagePreview"></div>
+
+      <button type="button" id="generateBtn">Generate PDF</button>
+      <button type="button" id="sendBtn">Generate & Email PDF</button>
+    </form>
+
+    <footer>
+      <p>&copy; 2025 Event Inspirations • All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- jsPDF library (required for PDF generation) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <!-- html2canvas library (required for rendering DOM to canvas for PDF) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <!-- Main scripts (must load after jsPDF and html2canvas) -->
+  <script type="module" src="scripts/main.js"></script>
+  <script src="scripts/pdf-generator.js" type="module"></script>
+  <script src="scripts/email-sender.js"></script>
+</body>
+</html>
