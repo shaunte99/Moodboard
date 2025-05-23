@@ -1,8 +1,6 @@
 import { jsPDF } from "jspdf";
-// html2canvas is usually global when loaded via CDN, so no import needed here
 
 export async function generateMoodBoardPDF(clientName, imageElements) {
-  // Create hidden container for PDF content
   const pdfContainer = document.createElement("div");
   pdfContainer.style.position = "absolute";
   pdfContainer.style.left = "-9999px";
@@ -10,7 +8,7 @@ export async function generateMoodBoardPDF(clientName, imageElements) {
   pdfContainer.style.padding = "30px";
   pdfContainer.style.fontFamily = "'Playfair Display', serif";
   pdfContainer.style.background = "#fff";
-  pdfContainer.style.border = "2px solid #f0e6d2";  // soft border
+  pdfContainer.style.border = "2px solid #f0e6d2";
   pdfContainer.style.borderRadius = "20px";
   pdfContainer.style.boxShadow = "0 8px 15px rgba(199, 166, 98, 0.3)";
   pdfContainer.style.color = "#1C1C1C";
@@ -18,7 +16,7 @@ export async function generateMoodBoardPDF(clientName, imageElements) {
 
   // Logo
   const logo = document.createElement("img");
-  logo.src = "images/logo.jpg"; // Make sure this path is correct
+  logo.src = "images/logo.jpg";
   logo.style.width = "120px";
   logo.style.height = "auto";
   logo.style.position = "absolute";
@@ -26,22 +24,21 @@ export async function generateMoodBoardPDF(clientName, imageElements) {
   logo.style.left = "30px";
   pdfContainer.appendChild(logo);
 
-  // Title - Client / Event Name
+  // Title
   const title = document.createElement("h2");
   title.textContent = clientName;
   title.style.fontSize = "2.5rem";
   title.style.marginBottom = "40px";
-  title.style.color = "#C7A662"; // Elegant Gold
+  title.style.color = "#C7A662";
   title.style.fontWeight = "700";
   pdfContainer.appendChild(title);
 
-  // Image grid container
+  // Image grid
   const grid = document.createElement("div");
   grid.style.display = "grid";
   grid.style.gridTemplateColumns = "repeat(3, 1fr)";
   grid.style.gap = "20px";
 
-  // Append each image
   for (let img of imageElements) {
     const clone = img.cloneNode();
     clone.style.width = "100%";
@@ -54,10 +51,11 @@ export async function generateMoodBoardPDF(clientName, imageElements) {
   pdfContainer.appendChild(grid);
   document.body.appendChild(pdfContainer);
 
-  // Wait for html2canvas to generate canvas
+  // Generate canvas
   const canvas = await html2canvas(pdfContainer, { scale: 3, useCORS: true });
   const imgData = canvas.toDataURL("image/png");
 
+  // Create PDF
   const pdf = new jsPDF("p", "pt", "a4");
   const pageWidth = pdf.internal.pageSize.getWidth();
   const pageHeight = pdf.internal.pageSize.getHeight();
